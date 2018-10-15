@@ -14,6 +14,7 @@ export class AuthService{
         .catch(
             error => console.log(error)
         );
+        this.router.navigate(['/login']);
     }
 
     signInUser(email: string, password: string){
@@ -33,6 +34,7 @@ export class AuthService{
     }
 
     logout(){
+        this.router.navigate(['/login']);
         firebase.auth().signOut();
         this.token = null;
     }

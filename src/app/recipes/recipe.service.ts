@@ -1,32 +1,21 @@
-import { Injectable} from '@angular/core';
+import { Injectable, OnInit} from '@angular/core';
 
 import { Recipe} from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Injectable()
 
-export class RecipeService {
+export class RecipeService{
 
   recipesChanged = new Subject<Recipe[]>();
 
-   private recipes: Recipe[] = [
-   new Recipe("Tasty Schnitzel",
-    "Super tasty Schnitzel, easy to make - just awesome!!!", "https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG",
-     [
-     new Ingredient('Meat', 1),
-     new Ingredient('French fries', 20)
-   ]),
-  new Recipe("Big Fat Burger",
-   "Best Burger recipe - a picture is worth a thousand words", "https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg",
-   [
-    new Ingredient('Buns', 2),
-    new Ingredient('Meat', 1)
-   ])
-  ];
+   private recipes: Recipe[];
 
   constructor(private shoppingListService: ShoppingListService) {}
+
 
   setRecipes(recipes: Recipe[]){
     this.recipes = recipes;
@@ -34,7 +23,9 @@ export class RecipeService {
   }
 
   getRecipes(){
-    return this.recipes.slice();
+    // return this.recipes.slice();
+    return this.recipes;
+
   }
 
   getRecipe(index: number){

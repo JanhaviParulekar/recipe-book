@@ -16,8 +16,9 @@ export class DataStorageService {
     }
 
     getRecipies(){
-        const token = this.authService.getToken()
-        this.http.get('https://recipe-book-4ae71.firebaseio.com/recipes.json?auth=' + token)
+        // const token = this.authService.getToken()
+        // this.http.get('https://recipe-book-4ae71.firebaseio.com/recipes.json?auth=' + token)
+        this.http.get('https://recipe-book-4ae71.firebaseio.com/recipes.json')
         .pipe(map(
             (response: Response) => {
                 const recipes: Recipe[] = response.json();
