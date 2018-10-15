@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="login-form">
+    <div class="main">
+      <div class="screen">
+        <h2>Login</h2>
+        <p>Please enter your username and password</p>
+      </div>
+      <form id="Login"  (ngSubmit) = "onSignIn(f)" #f="ngForm">
+
+        <div class="form-group">
+
+
+          <input type="email" class="form-control" id="email" name="email" ngModel placeholder="Username">
+
+        </div>
+
+        <div class="form-group">
+
+          <input type="password" class="form-control" id="password" name="password" ngModel placeholder="Password">
+
+        </div>
+        <div class="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <hr>
+        <a routerLink= "/signup">Create a new user</a>
+
+      </form>
+    </div>
+  </div>
+</div>
